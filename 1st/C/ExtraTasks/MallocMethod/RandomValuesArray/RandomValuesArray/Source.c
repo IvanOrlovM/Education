@@ -11,7 +11,12 @@ void main()
 	
 	int *arr = CreateArray(size);
 
+	// two - dimensional array
+	int **twoDimArr = CreateTwoDimArray(3, 4);
+
 	FillInArray(arr, size);
+
+	// FillInTwoDimArray(size, size);
 
 	ShowArray(arr, size);
 
@@ -30,6 +35,22 @@ int* CreateArray(int size)
 {
 	int* arr = malloc(size * sizeof(int));
 	return arr;
+}
+
+int** CreateTwoDimArray(int columnsCount, int rowsCount)
+{
+	// указатель для блока памяти для массива указателей
+	int** table;
+
+	// выделяем память для двухмерного массива
+	table = calloc(rowsCount, sizeof(int*));
+	
+	for (int i = 0; i < rowsCount; i++)
+	{
+		table[i] = CreateArray(columnsCount);
+	}
+
+	return table;
 }
 
 int* FillInArray(int* arr, int size)
@@ -56,5 +77,5 @@ void ShowArray(int*arr, int size)
 // реализовать пользовательский ввод 12:34 - 12:39
 // создать массив размерностью пользовательского ввода 12:40 - 12:58
 // заполнить массив случайными значениями 13:20 - 13:31
-// рефакторинг 13:47
-//
+// рефакторинг 13:47 - 14:30
+// изменить массив на двумерный 15:07
