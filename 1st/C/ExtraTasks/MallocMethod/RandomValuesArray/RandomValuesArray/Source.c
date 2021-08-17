@@ -11,14 +11,19 @@ void main()
 	
 	int *arr = CreateArray(size);
 
+	int columnsCount = 3;
+	int rowsCount = 4;
+
 	// two - dimensional array
-	int **twoDimArr = CreateTwoDimArray(3, 4);
+	int **twoDimArr = CreateTwoDimArray(columnsCount, rowsCount);
 
 	FillInArray(arr, size);
 
-	// FillInTwoDimArray(size, size);
+	FillInTwoDimArray(twoDimArr, columnsCount, rowsCount);
 
 	ShowArray(arr, size);
+
+	ShowTwoDimArray(twoDimArr, columnsCount, rowsCount);
 
 	free(arr);
 }
@@ -63,15 +68,41 @@ int* FillInArray(int* arr, int size)
 	return arr;
 }
 
+int** FillInTwoDimArray(int** arr, int columnsCount, int rowsCount)
+{
+	for (int i = 0; i < rowsCount; i++)
+	{
+		for (int j = 0; j < columnsCount; j++)
+		{
+			arr[i][j] = rand();
+		}
+	}
+
+	return arr;
+}
+
 void ShowArray(int*arr, int size) 
 {
 	for (int i = 0; i < size; i++)
 	{
-		printf("arr[%d]=", i);
+		printf("[%d]=", i);
 		printf("%d\n", arr[i]);
 	}
 
 	printf("\n");
+}
+
+void ShowTwoDimArray(int** arr, int columnsCount, int rowsCount)
+{
+	for (int i = 0; i < rowsCount; i++)
+	{
+		for (int j = 0; j < columnsCount; j++)
+		{
+			printf("%d ", arr[i][j]);
+		}
+
+		printf("\n");
+	}
 }
 
 // реализовать пользовательский ввод 12:34 - 12:39
@@ -79,3 +110,4 @@ void ShowArray(int*arr, int size)
 // заполнить массив случайными значениями 13:20 - 13:31
 // рефакторинг 13:47 - 14:30
 // изменить массив на двумерный 15:07
+// заполнить двумерный массив случайными элементами 13:37 - 16:19
