@@ -1,6 +1,15 @@
 #include <iostream>
+using namespace std;
 
 void main()
 {
-	std::cout << "Hello world)";
+	int gal;
+	double cubFt = 7.481;
+	
+	cout << "Enter count of gallons: ";
+	cin >> gal;
+	int userFt = (gal / cubFt);
+	cout << "Cubic ft is: " << userFt;
+
+	return;
 }
