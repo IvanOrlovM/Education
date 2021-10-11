@@ -4,4 +4,4 @@ Enter this table:
 1992	11300
 1993	16200
 
-Use only cout operator.
++ Use only cout operator.
